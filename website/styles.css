@@ -94,33 +94,52 @@ body, html {
 }
 
 .tech-scroll-wrapper {
-    overflow: hidden;
-    width: 100%;
-    position: relative;
+  overflow: hidden;
+  width: 700px;
+  max-width: 100%;
+  position: relative;
+  margin: 0 auto;
 }
 
 .tech-scroll-track {
-    display: flex;
-    gap: 30px;
-    animation: scroll-left 20s linear infinite;
-}
-
-.logo {
-    height: 60px;
-    flex: 0 0 auto;
-    transition: transform 0.3s ease;
-}
-
-.logo:hover {
-    transform: scale(1.2);
+  display: flex;
+  width: max-content;
+  gap: 40px;
+  animation: scroll-left 40s linear infinite;
 }
 
 @keyframes scroll-left {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px; /* Space between logo and name */
+}
+
+.logo {
+  height: 60px;
+  width: auto; /* Maintain aspect ratio */
+  flex-shrink: 0; /* Prevent shrinking */
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.logo:hover {
+  transform: scale(1.2);
+}
+
+.tooltip { /* This now acts as the visible tech name */
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  white-space: nowrap;
+}
