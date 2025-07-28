@@ -1,4 +1,3 @@
-
 body, html {
     margin: 0;
     padding: 0;
@@ -16,6 +15,7 @@ body, html {
     align-items: center;
     text-align: center;
     position: relative;
+    
 }
 
 .center {
@@ -23,7 +23,7 @@ body, html {
     top: 50%;
     left: 50%;
     width: 380px;
-    height: 393px;
+    height: 500 px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -86,6 +86,7 @@ body, html {
     position: relative;
     left : -400px;
     top: -25px;
+    margin-top: 30px;
 }
 
 .logo{
@@ -142,4 +143,34 @@ body, html {
   font-weight: 500;
   text-align: center;
   white-space: nowrap;
+}
+
+
+.s_Logo {
+    height: 30px;
+    width: 30px;
+    transition: transform 0.3s ease;
+    
+    
+}
+
+
+.info-card.socials {
+    margin-top: -10px; /* Adjust the value as needed */
+}
+
+.socials-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px; /* Adjust the value for more or less space */
+}
+
+.info-card.name-card{
+    height: 100px;
+}
+
+.profile-image{
+    width: 100%;
+    height: 100%;
 }
