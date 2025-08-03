@@ -1,3 +1,6 @@
+// Flag to track if typing animation is running (global scope)
+let isTypingAnimationRunning = false;
+
 document.addEventListener('DOMContentLoaded', () => {
     // Select all navigation buttons
     const navButtons = document.querySelectorAll('.nav-button');
@@ -7,12 +10,18 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', () => {
             console.log(`Button clicked: ${button.textContent.trim()}`); // Debugging log
 
-            // Check if the button clicked is "About Me"
+            // About Me Button
             if (button.textContent.trim() === 'About Me') {
                 // Hide the picture container
                 const pictureContainer = document.getElementById('picture-container');
                 if (pictureContainer) {
                     pictureContainer.style.display = 'none';
+                }
+
+                // Hide the Experience section
+                const experienceSection = document.getElementById('experiences-sections');
+                if (experienceSection) {
+                    experienceSection.style.display = 'none';
                 }
 
                 // Show the About Me section
@@ -28,8 +37,31 @@ document.addEventListener('DOMContentLoaded', () => {
                     descriptionElement.style.transform = 'translateY(20px)';
                 }
 
-                // Reset and start the typing animation
-                startTypingAnimation();
+                // Only start typing animation if it's not already running
+                if (!isTypingAnimationRunning) {
+                    startTypingAnimation();
+                }
+            }
+
+            // Experience Button
+            if (button.textContent.trim() === 'Experience') {
+                // Hide the picture container
+                const pictureContainer = document.getElementById('picture-container');
+                if (pictureContainer) {
+                    pictureContainer.style.display = 'none';
+                }
+
+                // Hide the About Me section
+                const aboutMeSection = document.getElementById('about-me-section');
+                if (aboutMeSection) {
+                    aboutMeSection.style.display = 'none';
+                }
+
+                // Show the Experience section
+                const experienceSection = document.getElementById('experiences-sections');
+                if (experienceSection) {
+                    experienceSection.style.display = 'block';
+                }
             }
         });
     });
@@ -38,6 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
 function startTypingAnimation() {
     const text = "Hello World! I'm Mattias"; 
     const typingElement = document.getElementById('typing-animation');
+    
+    // Set the flag to indicate animation is running
+    isTypingAnimationRunning = true;
     
     // Reset the element
     typingElement.innerHTML = '';
@@ -55,7 +90,11 @@ function startTypingAnimation() {
             setTimeout(type, 100); // Adjust typing speed (100ms per character)
         } else {
             // After typing animation completes, show the description
-            setTimeout(showDescription, 500); // Wait 500ms before showing description
+            setTimeout(() => {
+                showDescription();
+                // Reset the flag when animation is complete
+                isTypingAnimationRunning = false;
+            }, 500); // Wait 500ms before showing description
         }
     }
 
