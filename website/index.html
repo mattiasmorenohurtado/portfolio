@@ -10,6 +10,7 @@
 
 </head>
 <body>
+    <script src="script.js"></script>
     <div class="minimal-center">
         <div class="main-layout">
             <div class="profile-column">
@@ -91,9 +92,21 @@
                 </div>
             </div>
 
-            <div class="center">
-                <div class="rounded-square"></div>
-                <img src="mattias.png" alt="Mattias' Avatar" class="profile-image">
+            <div class="center" id = "picture-container">
+                <div class="rounded-square" ></div>
+                <img src="mattias.png" alt="Mattias' Avatar" class="profile-image" >
+            </div>
+
+            <div class="center" id="about-me-section" style="display: none;">
+                <div class="about-content">
+                    <p id="typing-animation"></p>
+                    <p id="about-description">I'm a web developer with a passion for building user-focused digital experiences. I specialize in JavaScript, React, and automation tools like n8n, and I'm always looking for ways to optimize workflows and solve real-world problems with code.<br><br>
+
+                                                I’ve recently transitioned from hands-on technical roles in HVAC and now focus on building tools, web apps, and automations. Whether it’s parsing data, connecting APIs, or deploying custom solutions, I enjoy bringing ideas to life.<br><br>
+
+                                                Outside of tech, I like working on personal projects, exploring mechanical systems, and leveling up my homelab.</p>     
+                </div>
+               
             </div>
 
             <div class="button-column">
