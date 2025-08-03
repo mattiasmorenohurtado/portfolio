@@ -87,7 +87,7 @@ function startTypingAnimation() {
                 typingElement.innerHTML += text.charAt(index);
             }
             index++;
-            setTimeout(type, 100); // Adjust typing speed (100ms per character)
+            setTimeout(type, 50); // Adjust typing speed (50ms per character)
         } else {
             // After typing animation completes, show the description
             setTimeout(() => {
@@ -106,5 +106,81 @@ function showDescription() {
     if (descriptionElement) {
         descriptionElement.style.opacity = '1';
         descriptionElement.style.transform = 'translateY(0)';
+    }
+}
+
+
+
+
+const jobData = {
+    hvac:{
+        title:"Junior Web Developer & API Integrations Intern",
+        dates:"July 2025 - August 2025",
+        company:"HVAC365",
+        description:"Developing web-based tools and automations for the HVAC industry, including serverless applications using Cloudflare Workers. Responsibilities include integrating third-party APIs, building backend logic for rebate calculators and sizing widgets, and enhancing workflows through webhooks and event-driven automation. Also involved in frontend development for internal tools and client-facing dashboards."
+    },
+
+
+
+     fiu:{
+        title:"Cybersecurity Researcher",
+        dates:"Summer 2023 & Summer 2024",
+        company:"Florida International University - SeRLoP Research Lab",
+        description:"At FIU’s SeRLoP research lab, I’ve conducted research on spam email detection using AI, collaborating with a team to analyze data and develop machine learning algorithms that improve filtering accuracy and reduce false positives. I also led a team of two interns in a separate project focused on facial detection, where we developed a program for binary-based face identification. This involved guiding data analysis, algorithm implementation, and ensuring the successful completion of the project—demonstrating both technical skill and leadership. "
+        }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let popup, popupOverlay;
+
+// Initialize popup elements when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    popup = document.getElementById('popup');
+    popupOverlay = document.getElementById('popup-overlay');
+    
+    console.log('Popup element:', popup);
+    console.log('Popup overlay element:', popupOverlay);
+});
+
+function openPopup(button) {
+    console.log('openPopup called');
+    const jobType = button.getAttribute('data-job');
+    const job = jobData[jobType];
+    
+    if (popup && popupOverlay && job) {
+        // Update popup content dynamically
+        document.querySelector('#popup h2').textContent = job.title;
+        document.querySelector('#popup .job-dates').textContent = job.dates;
+        document.querySelector('#popup .job-company').textContent = job.company;
+        document.querySelector('#popup .job-description').textContent = job.description;
+        
+        // Show the popup
+        popup.classList.add('open-popup');
+        popupOverlay.classList.add('open');
+        console.log('Popup opened for:', job.title);
+    } else {
+        console.error('Popup elements not found or job data missing');
+    }
+}
+
+function closePopup(){
+    console.log('closePopup called');
+    if (popup && popupOverlay) {
+        popup.classList.remove('open-popup');
+        popupOverlay.classList.remove('open');
+        console.log('Popup closed');
     }
 }

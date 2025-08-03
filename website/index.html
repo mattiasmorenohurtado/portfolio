@@ -116,14 +116,14 @@
                         <h2>Junior Web Developer & API Integrations Intern</h2>
                         <h5>July 2025 - August 2025</h5>
                         <h5>HVAC365</h5>
-                        <button class="work-expand">Expand</button>
+                        <button class="work-expand" data-job="hvac" onclick="openPopup(this)">Expand</button>
                     </div>
 
                     <div class="experiences-containers FIU">
                         <h2>Cybersecurity Research Intern</h2>
                         <h5>Summer 2023 & Summer 2024</h5>
                         <h5>Florida International University - SeRLoP Research Lab</h5>
-                        <button class="work-expand">Expand</button>
+                        <button class="work-expand" data-job="fiu" onclick="openPopup(this)">Expand</button>
                     </div>
                 </div>
             </div>
@@ -161,6 +161,18 @@
         </div>
     </div>
     
+    <!-- Popup Overlay -->
+    <div id="popup-overlay" class="popup-overlay" onclick="closePopup()"></div>
+    
+    <!-- Popup -->
+    <div id="popup" class="popup">
+        <h2></h2>
+        <h5 class="job-dates"></h5>
+        <h5 class="job-company"></h5>
+        <p class="job-description"></p>
+        <button onclick="closePopup()">Close</button>
+    </div>
+
     <footer class="copyright-footer">
         <p>&copy; Mattias Moreno-Hurtado 2025</p>
     </footer>
